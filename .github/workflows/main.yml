@@ -1,0 +1,20 @@
+name: Sparse Checkout Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            path/to/your/directory
+            path/to/another/file.txt
+
+      # Add more steps as needed
